@@ -1,0 +1,88 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+This notebook uses the student profile
+</div>
+
+<div class="nb-cell program" name="p1">
+/*FACTS :: */
+male(peter).
+male(john).
+male(chris).
+male(kevin).
+female(betty).
+female(jeny).
+female(lisa).
+female(helen).
+parentOf(chris,peter).
+parentOf(chris,betty).
+parentOf(helen,peter).
+parentOf(helen,betty).
+parentOf(kevin,chris).
+parentOf(kevin,lisa).
+parentOf(jeny,john).
+parentOf(jeny,helen).
+/*RULES :: */
+mother(X,Y):- female(Y),parentOf(X,Y).
+father(X,Y):- male(Y),parentOf(X,Y).
+grandfather(X,Y):- male(Y),parentOf(X,Z),parentOf(Z,Y).
+grandmother(X,Y):- female(Y),parentOf(X,Z),parentOf(Z,Y).
+brother(X,Y):- male(Y),father(X,Z),father(Y,W),Z==W.
+sister(X,Y):- female(Y),father(X,Z),father(Y,W),Z==W.
+
+</div>
+
+<div class="nb-cell query" data-chunk="2" name="q1">
+male(peter)
+</div>
+
+<div class="nb-cell query" name="q2">
+father(chris,peter)
+</div>
+
+<div class="nb-cell query" name="q3">
+father(chris, betty)
+</div>
+
+<div class="nb-cell query" name="q4">
+grandfather(kevin, peter).
+</div>
+
+<div class="nb-cell query" name="q5">
+grandfather(jeny, peter).
+</div>
+
+<div class="nb-cell query" name="q6">
+grandmother(jeny, peter).
+</div>
+
+<div class="nb-cell query" name="q7">
+mother(chris, X).
+</div>
+
+<div class="nb-cell query" name="q8">
+brother(helen, chris).
+</div>
+
+<div class="nb-cell query" name="q9">
+brother(chris, helen).
+</div>
+
+<div class="nb-cell query" name="q10">
+father(X,Y).
+</div>
+
+<div class="nb-cell query" name="q11">
+mother(X,Y).
+</div>
+
+<div class="nb-cell query" name="q12">
+grandmother(X,Y).
+</div>
+
+<div class="nb-cell query" name="q13">
+grandfather(X,Y).
+</div>
+
+
+</div>
